@@ -1,0 +1,125 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Calculator Results
+{% endblock %}
+
+{% block main %}
+
+<h3> Calculator Inputs </h3>
+<table>
+    <thead>
+        <tr>
+            <th> Calculator Input </th>
+            <th> Value </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for input in inputs %}
+            {%if input == "Current Age"%}
+                <tr>
+                    <td>{{input}}</td>
+                    <td>{{inputs[input]}}</td>
+                </tr>
+            {%elif input == "Stock Allocation for Incoming Savings" or input == "Bond Allocation for Incoming Savings"%}
+                <tr>
+                    <td>{{input}}</td>
+                    <td>{{inputs[input]}}%</td>
+                </tr>
+            {%elif input == "Stock Annual Interest" or input == "Bond Annual Interest"%}
+                <tr>
+                    <td>{{input}}</td>
+                    <td>{{inputs[input]}}%</td>
+                </tr>
+
+            {% else %}
+        <tr>
+            <td>{{input}}</td>
+            <td>{{inputs[input]|usd}}</td>
+        </tr>
+            {% endif %}
+        {% endfor %}
+        <tr>
+            <td>Annual Savings</td>
+            <td>{{annualsavings|usd}}</td>
+        </tr>
+    </tbody>
+
+
+</table>
+
+
+<h3> Results: </h3>
+{% if debt_payback_time > 0 %}
+    <p> If all of your annual savings are used to pay off your debt, your debt will be paid off in {{debt_payback_time}} years.</p>
+{% endif %}
+<p> Using the 4% rule, the total nest egg invested required to retire is <b>{{retirement_nest_egg|usd}}</b>
+based on an annual retirement spend of {{(monthlyretireexpenses*12)|usd}}</h5>
+<p> Time until goal is reached = <b>{{time_to_retirement}} years</b></h5>
+<p> Age: <b>{{(time_to_retirement + inputs["Current Age"])}}</b></p>
+
+
+<h3>{{ title }}</h3>
+
+<canvas id="chart" width="800" height="600"></canvas>
+
+    <script>
+
+      // bar chart data
+      var barData = {
+        labels : [
+          {% for item in labels %}
+            "{{ item }}",
+          {% endfor %}
+        ],
+
+        datasets : [{
+          fillColor: "rgba(151,187,205,0.2)",
+          strokeColor: "rgba(151,187,205,1)",
+          pointColor: "rgba(151,187,205,1)",
+          pointStrokeColor: "#fff",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(151,187,205,1)",
+          bezierCurve : false,
+          data : [
+	    {% for item in values %}
+              {{ item }},
+            {% endfor %}]
+          }
+	]
+      }
+
+      Chart.defaults.global.animationSteps = 50;
+      Chart.defaults.global.tooltipYPadding = 16;
+      Chart.defaults.global.tooltipCornerRadius = 0;
+      Chart.defaults.global.tooltipTitleFontStyle = "normal";
+      Chart.defaults.global.tooltipFillColor = "rgba(0,0,0,0.8)";
+      Chart.defaults.global.animationEasing = "easeOutBounce";
+      Chart.defaults.global.responsive = false;
+      Chart.defaults.global.scaleLineColor = "black";
+      Chart.defaults.global.scaleFontSize = 16;
+
+      // get bar chart canvas
+      var mychart = document.getElementById("chart").getContext("2d");
+
+      steps = 10
+      max = {{ max }}
+      // draw bar chart
+      var LineChartDemo = new Chart(mychart).Line(barData, {
+        scaleOverride: true,
+        scaleSteps: steps,
+        scaleStepWidth: Math.ceil(max / steps),
+        scaleStartValue: 0,
+        scaleShowVerticalLines: true,
+        scaleShowGridLines : true,
+        barShowStroke : true,
+        scaleShowLabels: true,
+        bezierCurve: false,
+      });
+
+    </script>
+{% endblock %}
+
+
+
+
