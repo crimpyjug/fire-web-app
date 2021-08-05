@@ -1,0 +1,83 @@
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: 300%;
+}
+
+/* Colors for brand */
+
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+
+main .form-control
+{
+    /* Center form controls */
+    display: inline-block;
+
+    /* Override Bootstrap's 100% width for form controls */
+    width: 40%;
+}
+
+main
+{
+    /* Scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* Center contents */
+    /*text-align: left; */
+}
+
+main img
+{
+    /* Constrain images on small screens */
+    max-width: 100%;
+}
+
+.jumbotron {
+    margin-bottom: 2rem;
+    padding: 0.5rem 0.5rem;
+}
+
+h5 {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+h2
+{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-weight: bold;
+
+}
+
+th
+{
+  padding: 5px;
+  border: 1px solid black;
+}
+td
+{
+    padding:4px;
+    border: 1px solid black;
+}
+table {
+  border: 2px solid black;
+  margin-bottom: 20px;
+}
+
+img{
+    width:80%;
+    height:auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+
