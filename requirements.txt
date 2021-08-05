@@ -1,3 +1,7 @@
 Flask
 gunicorn
-
+Jinja2
+requests
+Werkzeug
+numpy
+scipy
