@@ -17,52 +17,55 @@
 
     <form action="/" method="post">
 
-        Current Age
+        <h5>Current Age</h5>
         <div class="form-group">
             <input autocomplete="off" autofocus="on" class="form-control" name="Age" placeholder="Current age" type="text" required>
         </div>
-        Sources of Income
+        <h5>Annual Post-Tax Income</h5>
         <div class="form-group">
             <input autocomplete="off" class="form-control" name="Annual_post-tax_income" placeholder="Annual post-tax income ($)" type="text" required>
         </div>
-        Current Monthly Expenses
+        <h5>Current Monthly Expenses</h5>
         <div class="form-group">
 
             <input autocomplete="off" class="form-control" name="Monthly_Expenses" placeholder="Monthly Expenses ($)" type="text" required>
         </div>
-        Estimated Monthly Retirement Expenses
+        <h5>Estimated Monthly Retirement Expenses</h5>
         <div class="form-group">
             <input autocomplete="off" class="form-control" name="retirementexpenses" placeholder="Monthly Retirement Expenses ($)" type="text" min="0" required>
         </div>
-        Current Investments and Cash
+        <h5>Current Investments and Cash</h5>
+        <p> Total stock holdings in dollars including all retirement accounts (401K, IRAs, taxable brokerages) </p>
         <div class="form-group">
 
             <input autocomplete="off" class="form-control" name="Stocks" placeholder="Stock Investments ($)" type="text" required>
         </div>
+        <p> Total bond holdings in dollars including all retirement accounts (401K, IRAs, taxable brokerages) </p>
         <div class="form-group">
 
             <input autocomplete="off" class="form-control" name="Bonds" placeholder="Bond Investments ($)" type="text" required>
         </div>
+        <p> Total cash holdings (used only for debt payback calculation) </p>
         <div class="form-group">
             <input autocomplete="off" class="form-control" name="Cash" placeholder="Cash Savings ($)" type="text" required>
         </div>
-        Stock Allocation for Incoming Savings
+       <h5>Stock Allocation for Incoming Savings</h5>
         <p><small> *The non-stock allocation will be assumed to be all bonds. </small></p>
         <div class="form-group">
             <input autocomplete="off" class="form-control" name="stockallocation" placeholder="Stock Allocation (%)" type="number" min="0" max="100" id="stockallocation" required>
         </div>
-        Total Debt
+        <h5>Total Debt</h5>
         <div class="form-group">
             <input autocomplete="off" class="form-control" name="Debt" placeholder="Debt ($)" type="text" required>
         </div>
-        Interest Assumptions
-
+        <h5>Interest Assumptions</h5>
+        <p> Stock Annual % Return - typical is 6-8% </p>
         <div class="form-group">
-            <input autocomplete="off" class="form-control" name="stockreturn" placeholder="Stock Annual % Return (Enter 1-20%)" type="number" min="1" max="20" step="0.1" required>
+            <input autocomplete="off" class="form-control" name="stockreturn" placeholder="Stock Annual % Return" type="number" min="1" max="20" step="0.1" required>
         </div>
-
+        <p> Bond Annual % Return - typical is 2-4% </p>
         <div class="form-group">
-            <input autocomplete="off" class="form-control" name="bondreturn" placeholder="Bond Annual % Return (Enter 1-10%)" type="number" min="1" max="10" step="0.1" required>
+            <input autocomplete="off" class="form-control" name="bondreturn" placeholder="Bond Annual % Return" type="number" min="1" max="10" step="0.1" required>
         </div>
 
         <button class="btn btn-primary" type="submit">Submit</button>
