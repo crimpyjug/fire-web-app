@@ -137,7 +137,7 @@ def index():
         # Generate net worth chart values without and with debt
         if debt_payback_time == 0:
             equation_inputs = (retirement_nest_egg, stocks, bonds, annual_stock_contribution, annual_bond_contribution, stockinterest, bondinterest)
-            time_to_retirement = round(fsolve(equation, 20, args=equation_inputs)[0], 1)
+            time_to_retirement = round(fsolve(equation, 50, args=equation_inputs)[0], 1)
 
             # info required to generate graphs
             extra_years = 4 # range beyond hitting retirement goal to chart
@@ -153,7 +153,7 @@ def index():
             stocks_appr = stocks * (1 + (stockinterest/100))**debt_payback_time
             bonds_appr = bonds * (1 + (bondinterest/100))**debt_payback_time
             equation_inputs = (retirement_nest_egg, stocks_appr, bonds_appr, annual_stock_contribution, annual_bond_contribution, stockinterest, bondinterest)
-            time_to_retirement = round(fsolve(equation, 20, args=equation_inputs)[0] + debt_payback_time, 2)
+            time_to_retirement = round(fsolve(equation, 50, args=equation_inputs)[0] + debt_payback_time, 2)
 
             # info required to generate graphs
             extra_years = 4 # range beyond hitting retirement goal to chart
@@ -191,3 +191,4 @@ def emily():
 @app.route("/About")
 def About():
     return render_template("About.html")
+
