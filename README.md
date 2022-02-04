@@ -16,11 +16,11 @@ The navbar includes links to 3 pages: FIRE calculator (index.html), About Fire (
 
 The index (homepage) consists of a form where the user will input their financial information such as monthly expenses, annual after-tax income, etc and then hit submit to project their retirement age and net worth required to retire. If the user puts in values that includes symbols other than "$", ".", or "," the application redirects to an apology page asking the user to check their input.
 
-After hitting submit, the user will be directed to the results.html page (not listed in the navbar) This page displays the values of the inputs from the home page in a table, text telling the user the nest egg required to retire
+After hitting submit, the user will be directed to the results.html page (not listed in the navbar) This page displays the values of the inputs from the home page in a table and text telling the user the nest egg required to retire and the time in years to reach that nest egg. 
 
 There is also a Chart.js graph showing the user's net worth in investments over time. The data generated for the chart used numpy to create arrays for the x-axis.
 
-The user can also learn more about the concept of FIRE by clicking on the "About Fire" page on the navbar(about.html). This page describes the basis of the 4% rule, while says that your total investments in retirement multiplied by 4% should be equal to your annual retirement spend.
+The user can also learn more about the concept of FIRE by clicking on the "About Fire" page on the navbar(about.html). This page describes the basis of the 4% rule, which says that your total investments in retirement multiplied by 4% should be equal to your annual retirement spend.
 
 This page explains the concepts of FIRE and offers some advice on how to invest and budget to achieve financial independence such as investing consistently in total stock market index funds.
 
